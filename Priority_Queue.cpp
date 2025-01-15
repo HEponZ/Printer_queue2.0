@@ -1,19 +1,23 @@
 #include "Priority_Queue.h"
 
-void Priority_Queue::set(const User& user)
+void Priority_Queue::set(const User& user) noexcept
 {
 	users.push_back(user);
 	prioritets.push_back(user.prioritet);
 	size++;
 }
 
-void Priority_Queue::print_last()
+void Priority_Queue::Printing_doc()noexcept
 {
 	Extract().print();
 }
 
 User Priority_Queue::Extract()
 {
+	if (prioritets.empty())
+	{
+		throw out_of_range("Все документы напечатаны\n");
+	}
 	//Если в очереди есть элементы, то возвращаем тот,
 	//у которого наивысший приоритет и сдвигаем очередь
 	//пусть приоритетный элемент - нулевой

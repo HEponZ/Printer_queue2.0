@@ -13,34 +13,40 @@ int main()
 		PRIORITETS
 	};
 
-	cout << "______МЕНЮ______\n1 - Ввод данных\n2 - Вывод статистики\n3 - Вывод приоритетов(чем он больше тем вы раньше в списке)\n";
+	cout << "______МЕНЮ______\n1 - Ввод данных\n2 - Вывод статистики\n3 - Пейчать документов по приоритету(чем он больше тем вы раньше в списке)\n";
 
 	do
 	{
-		cout << " - ";
-		cin >> choise;
-
-		switch (choise)
+		try
 		{
-		case ADD:
-			cout << "Введите ФИО: ";
-			cin >> FIO;
-			cout << "Введите должность: ";
-			cin >> prof;
-			cout << "Введите дату: ";
-			cin >> date;
-			cout << "Введите приоритет: ";
-			cin >> prioritet;
-			printer.Add(FIO, prof, prioritet, date);
-			break;
-		case STATISTICS:
-			printer.statistic();
-			break;
-		case PRIORITETS:
-			printer.print_pri();
-			break;
-		case EXIT:
-			break;
+			cout << " - ";
+			cin >> choise;
+			switch (choise)
+			{
+			case ADD:
+				cout << "Введите ФИО: ";
+				cin >> FIO;
+				cout << "Введите должность: ";
+				cin >> prof;
+				cout << "Введите дату: ";
+				cin >> date;
+				cout << "Введите приоритет: ";
+				cin >> prioritet;
+				printer.Add(FIO, prof, prioritet, date);
+				break;
+			case STATISTICS:
+				printer.statistic();
+				break;
+			case PRIORITETS:
+				printer.print_next();
+				break;
+			case EXIT:
+				break;
+			}
+		}
+		catch (const out_of_range& range_er)
+		{
+			cout << range_er.what();
 		}
 	} while (choise != 0);
 

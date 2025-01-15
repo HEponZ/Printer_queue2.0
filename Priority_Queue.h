@@ -5,10 +5,10 @@ class Priority_Queue
 {
 private:
 	vector<User> users;
-	int size = users.size();
+	int size = 0;
 	vector<int> prioritets;
 public:
-	void set(const User& user);
-	void print_last();
-	User Extract();
+	void set(const User& user) noexcept;
+	void Printing_doc()noexcept;
+	User Extract() ;
 };

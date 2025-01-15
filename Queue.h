@@ -6,6 +6,6 @@ class Queue
 private:
 	vector<User> users;
 public:
-	void set(const User& user_buf);
-	void print();
+	void set(const User& user_buf) noexcept;
+	void print() noexcept;
 };
