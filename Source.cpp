@@ -44,9 +44,9 @@ int main()
 				break;
 			}
 		}
-		catch (const out_of_range& range_er)
+		catch (const logic_error& err)
 		{
-			cout << range_er.what();
+			cout << err.what();
 		}
 	} while (choise != 0);
 

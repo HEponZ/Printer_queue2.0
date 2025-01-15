@@ -14,9 +14,9 @@ void Priority_Queue::Printing_doc()noexcept
 
 User Priority_Queue::Extract()
 {
-	if (prioritets.empty())
+	if (prioritets.size() == 0)
 	{
-		throw out_of_range("Все документы напечатаны\n");
+		throw logic_error("Все документы напечатаны\n");
 	}
 	//Если в очереди есть элементы, то возвращаем тот,
 	//у которого наивысший приоритет и сдвигаем очередь
@@ -41,6 +41,12 @@ User Priority_Queue::Extract()
 	}
 	//уменьшаем количество
 	size--;
+
+	if (prioritets.size() == 1)
+	{
+		cout << "\n\nЭто последний документ.\nПосле его распечатки очерель к принтеру будет свободна\n\n";
+	}
+
 	//возврат извлеченного элемента
 	return temp1;
 }
